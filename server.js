@@ -1,7 +1,15 @@
 const express = require("express");
 const path = require("path");
+const connectDB = require("./config/db");
 
 const app = express();
+
+// connect database
+connectDB();
+
+// init middleware
+app.use(express.json({ extended: false }));
+
 app.get("/", (req, res) =>
   res.json({ msg: "xelcom to the contact keeper api" })
 );
