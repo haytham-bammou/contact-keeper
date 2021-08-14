@@ -11,7 +11,7 @@ import setAuthToken from "./utils/seAuthToken";
 import AlertState from "./context/alert/AlertState";
 import { Alerts } from "./component/layout/Alerts";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { PrivateRoute } from "./component/routing/PrivateRoute";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -27,7 +27,7 @@ const App = () => {
               <div className="container">
                 <Alerts />
                 <Switch>
-                  <Route exact path="/" component={Home} />
+                  <PrivateRoute exact path="/" component={Home} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
